@@ -1,0 +1,51 @@
+.container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+
+  z-index: 999;
+
+  background: #111;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.container a {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 60px;
+
+  text-decoration: none;
+  font-weight: 700;
+
+  transition: opacity 0.3s ease;
+}
+
+.whatsapp {
+  background: #25d366;
+  color: #fff;
+}
+
+.call {
+  background: #d4af37;
+  color: #111;
+}
+
+.whatsapp:hover,
+.call:hover {
+  opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: none;
+  }
+}
