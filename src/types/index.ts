@@ -31,9 +31,7 @@ export interface Business {
 
   displayPhone: string;
 
-  whatsapp: string;
 
-  whatsappMessage: string;
 
   email: string;
 
@@ -302,6 +300,32 @@ export interface SEO {
   ogImage: string;
 }
 
+
+/** WhatsApp Configuration */
+
+export interface WhatsAppConfig {
+  enabled: boolean;
+  phone: string;
+  message: string;
+
+  greeting?: string;
+
+  delay?: number;
+
+  showGreeting?: boolean;
+
+  pulse?: boolean;
+
+  showOnMobileOnly?: boolean;
+
+  hideOnFooter?: boolean;
+
+  rememberDismiss?: boolean;
+}
+
+
+
+
 /**
  * ============================================================================
  * ROOT DATA
@@ -310,6 +334,9 @@ export interface SEO {
 
 export interface BusinessData {
   business: Business;
+
+whatsapp: WhatsAppConfig;
+
 
   heroSection: HeroSection;
 
@@ -330,3 +357,5 @@ export interface BusinessData {
 
   ctaFinal: CTAFinalSection;
 }
+
+

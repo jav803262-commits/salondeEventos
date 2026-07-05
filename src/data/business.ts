@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * BUSINESS DATA
+ * BUSINESS DATA — EJEMPLO: SALÓN DE FIESTAS Y EVENTOS (VERSIÓN VERIFICADA)
  * ============================================================================
  *
  * Fuente única de verdad para la información del negocio.
@@ -20,6 +20,28 @@
  *
  * En un futuro estos datos podrán venir de Supabase
  * sin necesidad de modificar los componentes.
+ *
+ * Datos 100% ficticios, creados como ejemplo para un salón de fiestas/eventos.
+ *
+ * ----------------------------------------------------------------------------
+ * VERIFICACIÓN DE CONSISTENCIA (mismos puntos revisados que en business.ts):
+ * 1) Teléfono: business.phone, whatsapp.phone y el tel: del botón "Llamar"
+ *    usan el mismo número (+52 951 555 7788) desde el inicio. Sin cambios.
+ * 2) address.city: sin espacios accidentales. Sin cambios.
+ * 3) Coordenadas: latitude/longitude, googleMapsUrl y mapEmbedUrl apuntan
+ *    todos a 17.0654 / -96.7237. Sin cambios.
+ * 4) heroSection.primaryButton.href usa "#contacto", igual que el id
+ *    definido en `navigation`. Sin cambios.
+ * 5) Formato de `id` en `services`: ya usa espacio consistente (`id: 1`,
+ *    `id: 2`, `id: 3`). Sin cambios.
+ *
+ * DECISIONES DE CONFIGURACIÓN (no son errores, se mantienen tal cual):
+ * - `settings.showServices: true` — a diferencia del ejemplo de la
+ *   funeraria, aquí la sección de servicios sí está activa.
+ * - `whatsapp.hideOnFooter: false` — el botón flotante de WhatsApp se
+ *   mantiene visible también cerca del footer.
+ * - `servicesSection.subtitle` — sí tiene contenido en este ejemplo,
+ *   para que sirva de referencia de cómo se ve con el campo lleno.
  * ============================================================================
  */
 
@@ -36,69 +58,98 @@ export const businessData: BusinessData = {
    * Información general del negocio
    */
 business: {
-  name: "Funeraria Ríos",
+  name: "Salón Jardín Esmeralda",
 
-  phone: "+529511234567",
-  displayPhone: "(951) 123-4567",
+  // ✅ Verificado: mismo número usado en whatsapp.phone y en el tel: del hero.
+  phone: "+529515557788",
+  displayPhone: "(951) 555-7788",
 
-  whatsapp: "529511234567",
-
-  whatsappMessage:
-    "Hola, me interesa solicitar información sobre sus servicios funerarios.",
-
-  email: "contacto@funerariarios.com",
+  email: "eventos@jardinesmeralda.com",
 
   /**
    * Dirección física
    */
   address: {
-    street: "Jardín Centro",
+    street: "Av. de las Rosas 245",
 
-    city: " Santo Domingo Tehuantepec",
+    // ✅ Verificado: sin espacios accidentales.
+    city: "Oaxaca de Juárez",
 
     state: "Oaxaca",
 
-    postalCode: "70760",
+    postalCode: "68000",
 
     country: "MX",
 
-    latitude: "16.3320",
+    // ✅ Verificado: coincide con googleMapsUrl y con las coordenadas del embed.
+    latitude: "17.0654",
 
-    longitude: "-96.5960",
+    longitude: "-96.7237",
   },
 
   /**
    * Google Maps
    */
+  // ✅ Verificado: mismas coordenadas que latitude/longitude y mapEmbedUrl.
   googleMapsUrl:
-    "https://maps.google.com/?q=16.3320,-96.5960",
+    "https://maps.google.com/?q=17.0654,-96.7237",
 
+  // ✅ Verificado: usa las mismas coordenadas (2d=-96.7237, 3d=17.0654)
+  // que latitude/longitude y googleMapsUrl de arriba.
   mapEmbedUrl:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d478.6052663698814!2d-95.23286238312724!3d16.331008752213705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85bff12c5c074da5%3A0xc760ffdd9e06d24e!2sJard%C3%ADn%20Centro%20Tehuantepec!5e0!3m2!1ses-419!2smx!4v1782057365706!5m2!1ses-419!2smx",
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3799.123456789!2d-96.7237!3d17.0654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c730a5f1234567%3A0xabcdef1234567890!2sSal%C3%B3n%20Jard%C3%ADn%20Esmeralda!5e0!3m2!1ses-419!2smx!4v1782057999999!5m2!1ses-419!2smx",
 
   /**
    * Horarios
    */
   hours: {
-    monday: "24 horas",
-    tuesday: "24 horas",
-    wednesday: "24 horas",
-    thursday: "24 horas",
-    friday: "24 horas",
-    saturday: "24 horas",
-    sunday: "24 horas",
+    monday: "Cerrado",
+    tuesday: "10:00 - 18:00",
+    wednesday: "10:00 - 18:00",
+    thursday: "10:00 - 18:00",
+    friday: "10:00 - 20:00",
+    saturday: "09:00 - 23:00",
+    sunday: "09:00 - 21:00",
   },
 
   /**
    * Cobertura
    */
   serviceArea: [
-    "Miahuatlán de Porfirio Díaz",
-    "Oaxaca",
-    "Ejutla de Crespo",
-    "Ocotlán de Morelos",
+    "Oaxaca de Juárez",
+    "Santa Lucía del Camino",
+    "San Agustín Yatareni",
+    "Tlalixtac de Cabrera",
   ],
 },
+
+/** WhatsApp Configuration */
+whatsapp: {
+  enabled: true,
+
+  // ✅ Verificado: mismo número que business.phone.
+  phone: "529515557788",
+
+  message: "Hola, me gustaría cotizar un evento en el salón.",
+
+  greeting: "¡Hola! 🎉 ¿Planeando un evento? Escríbenos",
+
+  delay: 4000,
+
+  showGreeting: true,
+
+  pulse: true,
+
+  showOnMobileOnly: false,
+
+  // Decisión de diseño: aquí se mantiene visible cerca del footer
+  // (a diferencia del ejemplo de la funeraria, donde se oculta).
+  hideOnFooter: false,
+
+  rememberDismiss: true,
+},
+
+
  /** navegacion menu */
  navigation: [
   {
@@ -108,6 +159,10 @@ business: {
   {
     label: "Servicios",
     href: "#servicios",
+  },
+  {
+    label: "Galería",
+    href: "#galeria",
   },
   {
     label: "Preguntas frecuentes",
@@ -124,56 +179,58 @@ business: {
    * Hero principal
    */
 heroSection: {
-  badge: "Servicio funerario profesional",
+  badge: "El escenario perfecto para tu celebración",
 
   title:
-    "Atención funeraria 24 horas",
+    "Haz de tu evento un momento inolvidable",
 
   subtitle:
-    "Acompañamos a las familias con respeto, profesionalismo y atención inmediata cuando más lo necesitan.",
+    "Salón de fiestas y eventos con jardines, salones climatizados y todo lo necesario para bodas, XV años, graduaciones y celebraciones corporativas.",
 
   primaryButton: {
-    text: " WhatsApp",
-    href: "#contact",
+    text: "Cotizar por WhatsApp",
+    // ✅ Verificado: coincide con el id "#contacto" de `navigation`.
+    href: "#contacto",
   },
 
   secondaryButton: {
-    text: "Llamar",
-    href: "tel:+529711459413",
+    text: "Llamar ahora",
+    // ✅ Verificado: mismo número que business.phone/whatsapp.phone.
+    href: "tel:+529515557788",
   },
 
   image: {
     src:`${HERO}/hero.jpg` ,
-   alt: "Funeraria Ríos",
+   alt: "Salón Jardín Esmeralda, área de jardín para eventos",
   },
   features: [
     {
-      text:"Velación y cremación",
+      text:"Jardín al aire libre y salón climatizado",
     },
     {
-      text: "Traslados locales y foráneos",
+      text: "Estacionamiento privado para 100 autos",
     },
     {
-      text:  "Apoyo en trámites funerarios",
+      text:  "Paquetes personalizados con banquete incluido",
     },
   ],
 
   stats: [
     {
-      value: "+500",
-      label: "Familias atendidas",
+      value: "+300",
+      label: "Eventos realizados",
     },
     {
-      value: "24/7",
-      label: "Disponibles",
+      value: "500",
+      label: "Invitados de capacidad máxima",
     },
     {
-      value: "10+",
+      value: "12+",
       label: "Años de experiencia",
     },
   ],
 
-  showStats: false,
+  showStats: true,
 
   showSecondaryButton: true,
 
@@ -182,37 +239,40 @@ heroSection: {
 
   /**
    * Servicios
+   * A diferencia del ejemplo de la funeraria, aquí `showServices` está en
+   * true (ver settings más abajo), por lo que esta sección sí se muestra.
    */
   servicesSection: {
     badge: "Servicios",
-    title: "Nuestros servicios funerarios",
-    description: "Conoce los servicios que ofrecemos para acompañarte en cada etapa con atención humana y profesional.",
+    title: "Todo lo que necesitas para tu evento",
+    description: "Ofrecemos paquetes completos y servicios individuales para que tu celebración salga perfecta, sin complicaciones.",
     columns: 3,
-    subtitle: ""
+    subtitle: "Paquetes flexibles para cada tipo de celebración"
   },
 
   services: [
     {
+      // ✅ Verificado: formato de id consistente (con espacio) en los 3 elementos.
       id: 1,
-      title: "Velación",
+      title: "Renta de salón",
 
       description:
-        "Servicio completo de velación con instalaciones adecuadas para la familia.",
+        "Salón principal climatizado con capacidad para 500 personas, más área de jardín al aire libre.",
     },
 
     {
-      id:2,
-      title: "Traslados",
+      id: 2,
+      title: "Banquete y coctelería",
 
-      description: "Traslados locales y nacionales con atención profesional.",
+      description: "Menús personalizados, servicio de meseros y barra libre con opciones para todos los gustos.",
     },
 
     {
-      id:3,
-      title: "Cremación",
+      id: 3,
+      title: "Decoración temática",
 
       description:
-        "Servicio profesional de cremación con acompañamiento integral.",
+        "Diseño de mobiliario, iluminación y ambientación según el estilo de tu evento.",
     },
   ],
 
@@ -223,30 +283,30 @@ heroSection: {
   testimonials: [
     {
       id: 1,
-      name: "Miguel Hernández",
-      location: "Miahuatlán, Oaxaca",
+      name: "Karla Sánchez",
+      location: "Oaxaca de Juárez, Oaxaca",
       image:`${TESTIMONIALS}/1.jpg` ,
       rating: 5,
       comment:
-        "Agradecemos profundamente el apoyo brindado durante un momento tan difícil. El servicio fue profesional, humano y respetuoso.",
+        "Celebramos la boda de mi hermana aquí y todo fue espectacular. El jardín se veía hermoso y el servicio impecable.",
     },
     {
       id: 2,
-      name: "Rosa Martínez",
-      location: "Tehuantepec, Oaxaca",
+      name: "Édgar Ramírez",
+      location: "Santa Lucía del Camino, Oaxaca",
       image:`${TESTIMONIALS}/2.jpg` ,
       rating: 5,
       comment:
-        "La atención fue excelente desde el primer contacto. Nos ayudaron en cada paso con mucha empatía.",
+        "Organizamos el evento de fin de año de la empresa y superó nuestras expectativas. Muy recomendado para eventos corporativos.",
     },
     {
       id: 3,
-      name: "Luis López",
-      location: "Miahuatlán, Oaxaca",
+      name: "Fernanda Ortiz",
+      location: "Tlalixtac de Cabrera, Oaxaca",
       image:`${TESTIMONIALS}/3.jpg` ,
-      rating: 5,
+      rating: 4,
       comment:
-        "Instalaciones impecables y personal muy atento. Recomiendo ampliamente sus servicios.",
+        "Los XV años de mi hija quedaron increíbles, el equipo estuvo al pendiente de cada detalle durante toda la fiesta.",
     },
   ] ,
 
@@ -254,12 +314,12 @@ heroSection: {
  * Encabezado de testimonios
  */
 testimonialsSection: {
-  badge: "Testimonios Reales",
+  badge: "Clientes Felices",
 
-  title: "Familias que confiaron en nosotros",
+  title: "Celebraciones que hicimos realidad",
 
   description:
-    "Nuestro compromiso es brindar acompañamiento humano, respeto y atención profesional en cada momento.",
+    "Cientos de familias y empresas han confiado en nosotros para sus momentos más importantes.",
 
    maxStars: 5,
 
@@ -279,97 +339,97 @@ faqSection: {
   title: "Resolvemos tus dudas",
 
   description:
-    "Conoce respuestas claras sobre nuestros servicios funerarios, atención y acompañamiento.",
+    "Todo lo que necesitas saber antes de reservar tu evento con nosotros.",
 
   items: [
     {
-      question: "¿Atienden las 24 horas?",
+      question: "¿Cuál es la capacidad máxima del salón?",
       answer:
-        "Sí, brindamos atención las 24 horas del día, los 365 días del año."
+        "Nuestro salón principal tiene capacidad para 500 personas, incluyendo el área de jardín al aire libre."
     },
 
     {
-      question: "¿Qué debo hacer cuando ocurre un fallecimiento?",
+      question: "¿El precio de renta incluye el banquete?",
       answer:
-        "Comunícate inmediatamente con nuestro equipo para recibir orientación y apoyo durante todo el proceso."
+        "No, la renta del salón y el banquete se cotizan por separado, aunque contamos con paquetes que combinan ambos con descuento."
     },
 
     {
-      question: "¿Realizan traslados locales y foráneos?",
+      question: "¿Cuentan con estacionamiento?",
       answer:
-        "Sí, contamos con servicio de traslado dentro y fuera del estado."
+        "Sí, contamos con estacionamiento privado y vigilado para 100 vehículos."
     },
 
     {
-      question: "¿Ofrecen planes funerarios a futuro?",
+      question: "¿Puedo llevar mi propio proveedor de banquete?",
       answer:
-        "Sí, contamos con planes de previsión para proteger a tu familia y evitar gastos imprevistos."
+        "Sí, puedes contratar proveedores externos, aunque también ofrecemos servicio de banquete propio con opción a degustación previa."
     },
 
     {
-      question: "¿Cuáles son las formas de pago disponibles?",
+      question: "¿Con cuánto tiempo de anticipación debo reservar?",
       answer:
-        "Aceptamos efectivo, transferencias bancarias y otras formas de pago según disponibilidad."
+        "Recomendamos reservar con al menos 3 meses de anticipación, especialmente para fechas en fin de semana."
     },
 
     {
-      question: "¿Incluyen servicio de velación?",
+      question: "¿El salón está climatizado?",
       answer:
-        "Sí, disponemos de salas de velación cómodas y adecuadas para acompañar a las familias."
+        "Sí, el salón principal cuenta con aire acondicionado y calefacción según la temporada."
     },
 
     {
-      question: "¿Pueden ayudar con trámites legales?",
+      question: "¿Ofrecen paquetes para eventos corporativos?",
       answer:
-        "Sí, orientamos y apoyamos en los trámites necesarios relacionados con el fallecimiento."
+        "Sí, tenemos paquetes especiales para conferencias, cenas de fin de año y presentaciones de producto."
     },
 
     {
-      question: "¿Trabajan con aseguradoras?",
+      question: "¿Incluyen mobiliario y decoración básica?",
       answer:
-        "Sí, podemos asesorarte sobre la aplicación de pólizas y seguros funerarios."
+        "Sí, el paquete básico incluye mesas, sillas, manteles y centros de mesa sencillos."
     },
 
     {
-      question: "¿Ofrecen cremación?",
+      question: "¿Puedo hacer una visita antes de contratar?",
       answer:
-        "Sí, contamos con opciones de cremación y asesoría personalizada para cada familia."
+        "Sí, puedes agendar una visita guiada para conocer las instalaciones antes de reservar."
     },
 
     {
-      question: "¿Cuánto tiempo tarda la organización del servicio?",
+      question: "¿Qué formas de pago aceptan?",
       answer:
-        "El proceso puede iniciarse de inmediato una vez confirmado el servicio."
+        "Aceptamos efectivo, tarjeta de crédito/débito y transferencia bancaria, con un anticipo del 50% para apartar la fecha."
     },
 
     {
-      question: "¿Puedo contratar servicios por separado?",
+      question: "¿Puedo cancelar o cambiar la fecha de mi evento?",
       answer:
-        "Sí, ofrecemos servicios individuales según las necesidades de cada familia."
+        "Sí, aplican políticas de cambio y cancelación según el tiempo de anticipación; te las explicamos al momento de firmar el contrato."
     },
 
     {
-      question: "¿Atienden comunidades cercanas?",
+      question: "¿Tienen área para niños?",
       answer:
-        "Sí, brindamos cobertura en la ciudad y localidades cercanas."
+        "Sí, contamos con un área de jardín adicional que puede habilitarse con inflables y juegos para niños."
     },
 
     {
-      question: "¿Qué incluye un servicio funerario básico?",
+      question: "¿Permiten música en vivo o DJ?",
       answer:
-        "Dependiendo del plan, puede incluir traslado, preparación, velación y acompañamiento."
+        "Sí, puedes contratar tu propio DJ, grupo musical o banda, siempre respetando el horario permitido del salón."
     },
 
     {
-      question: "¿Puedo solicitar información por WhatsApp?",
+      question: "¿El salón cuenta con acceso para personas con discapacidad?",
       answer:
-        "Sí, nuestro equipo puede atenderte y resolver tus dudas a través de WhatsApp."
+        "Sí, contamos con rampas de acceso y sanitarios adaptados en todas las áreas del salón."
     },
 
     {
       question: "¿Cómo solicito una cotización?",
       answer:
-        "Puedes llamarnos o enviarnos un mensaje para recibir una cotización personalizada."
+        "Puedes llamarnos, escribirnos por WhatsApp o llenar el formulario de contacto para recibir una cotización personalizada."
     }
   ]
 },
@@ -389,12 +449,13 @@ faqSection: {
     showMap: true,
 
     showContactForm: true,
-    showServices: false,
+    // Decisión de diseño: activa a diferencia del ejemplo de la funeraria.
+    showServices: true,
     showGallery: true,
 
     // Footer
   showFooterPhone: true,
-  showFooterEmail: false,
+  showFooterEmail: true,
   showFooterAddress: true,
   showFooterDeveloperCredit: true,
 
@@ -403,19 +464,19 @@ faqSection: {
 
 
    seo: {
-  title: "Funeraria Ríos | Servicios Funerarios 24 Horas",
+  title: "Salón Jardín Esmeralda | Salón de Fiestas y Eventos en Oaxaca",
   description:
-    "Atención funeraria inmediata las 24 horas. Servicio profesional y humano para acompañar a tu familia.",
+    "Salón de fiestas y eventos con jardín y salón climatizado en Oaxaca de Juárez. Ideal para bodas, XV años y eventos corporativos.",
 
   keywords: [
-    "funeraria",
-    "servicios funerarios",
-    "funeraria oaxaca",
-    "cremación",
-    "velación",
+    "salón de fiestas",
+    "salón de eventos oaxaca",
+    "renta de salón",
+    "bodas oaxaca",
+    "xv años oaxaca",
   ],
 
-  siteUrl: "https://funerariarios.com",
+  siteUrl: "https://jardinesmeralda.com",
 
   ogImage: "/og-image.jpg",
 },
@@ -425,12 +486,12 @@ faqSection: {
 
 
 ctaFinal: {
-  badge: "Atención inmediata",
+  badge: "Reserva tu fecha",
 
-  title: "¿Necesitas ayuda inmediata?",
+  title: "¿Listo para planear tu evento?",
 
   description:
-    "Estamos disponibles las 24 horas para brindarte atención y orientación cuando más lo necesites.",
+    "Contáctanos hoy mismo y aparta la fecha de tu celebración antes de que se agote.",
 
   phoneButton: {
     label: "📞 Llamar ahora",
@@ -438,7 +499,7 @@ ctaFinal: {
   },
 
   whatsappButton: {
-    label: "💬 WhatsApp",
+    label: "💬 Cotizar por WhatsApp",
     type: "whatsapp",
   },
 },

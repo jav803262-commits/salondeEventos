@@ -9,12 +9,12 @@ import FAQ from "@/sections/FAQ/FAQ";
 import Hero from "@/sections/Hero/Hero";
 import Services from "@/sections/Services/Services";
 import Testimonials from "@/sections/Testimonials/Testimonials";
-import WhatsAppButton from "@/components/WhatsAppButton/WhatsAppButton";
 import Image from "next/image";
 import StickyCTA from "@/components/StickyCTA/StickyCTA";
 import { businessData } from "@/data/business";
 import { Map } from "@/sections/Map/Map";
 import Gallery from "@/sections/Gallery/Gallery";
+import WhatsAppWidget from "@/components/whatsapp/WhatsAppWidget";
 
 
 export default function Home() {
@@ -38,7 +38,8 @@ export default function Home() {
       </main>
 
       <Footer />
-      <WhatsAppButton />
+       
+       <WhatsAppWidget   config={businessData.whatsapp}   />
 
       {businessData.settings.showStickyCTA && <StickyCTA />}
 

@@ -3,10 +3,10 @@ import Image from "next/image";
 import { businessData } from "@/data/business";
 import { createWhatsAppLink } from "@/lib/whatsapp";
 
-const whatsappUrl = createWhatsAppLink(
-  businessData.business.whatsapp,
-  businessData.business.whatsappMessage
-);
+import { getWhatsAppLink } from "@/lib/whatsapp";
+import WhatsAppLink from "@/components/whatsapp/WhatsAppLink";
+
+const whatsappUrl = getWhatsAppLink(businessData.whatsapp);
 
 export default function Hero() {
   const hero = businessData.heroSection;
@@ -58,62 +58,66 @@ export default function Hero() {
             )}
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={whatsappUrl}
-                aria-label={hero.primaryButton.text}
-                className="rounded-xl bg-amber-500 px-6 py-3 text-center font-semibold text-black transition hover:opacity-90"
+              <WhatsAppLink
+                ariaLabel={hero.primaryButton.text}
+                className="
+    rounded-xl
+    bg-amber-500
+    px-6
+    py-3
+    text-center
+    font-semibold
+    text-black
+    transition
+    hover:opacity-90
+  "
               >
                 {hero.primaryButton.text}
-              </a>
+              </WhatsAppLink>
 
-              {hero.showSecondaryButton &&
-                hero.secondaryButton && (
-                  <a
-                    href={hero.secondaryButton.href}
-                    aria-label={hero.secondaryButton.text}
-                    className="rounded-xl border border-gray-300 px-6 py-3 text-center font-semibold text-gray-900 transition hover:border-amber-500"
-                  >
-                    {hero.secondaryButton.text}
-                  </a>
-                )}
+              {hero.showSecondaryButton && hero.secondaryButton && (
+                <a
+                  href={hero.secondaryButton.href}
+                  aria-label={hero.secondaryButton.text}
+                  className="rounded-xl border border-gray-300 px-6 py-3 text-center font-semibold text-gray-900 transition hover:border-amber-500"
+                >
+                  {hero.secondaryButton.text}
+                </a>
+              )}
             </div>
 
-            {hero.showStats &&
-              hero.stats.length > 0 && (
-                <dl className="mt-8 grid grid-cols-3 gap-3">
-                  {hero.stats.map((stat) => (
-                    <div
-                      key={stat.label}
-                      className="rounded-xl border border-gray-200 p-4 text-center"
-                    >
-                      <dd className="text-xl font-bold text-amber-500">
-                        {stat.value}
-                      </dd>
+            {hero.showStats && hero.stats.length > 0 && (
+              <dl className="mt-8 grid grid-cols-3 gap-3">
+                {hero.stats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="rounded-xl border border-gray-200 p-4 text-center"
+                  >
+                    <dd className="text-xl font-bold text-amber-500">
+                      {stat.value}
+                    </dd>
 
-                      <dt className="mt-1 text-xs text-gray-600">
-                        {stat.label}
-                      </dt>
-                    </div>
-                  ))}
-                </dl>
-              )}
+                    <dt className="mt-1 text-xs text-gray-600">{stat.label}</dt>
+                  </div>
+                ))}
+              </dl>
+            )}
           </div>
 
-          {hero.showImage &&
-            hero.image && (
-              <div className="relative overflow-hidden rounded-3xl border border-gray-200 shadow-sm">
-                <div className="relative aspect-4/3">
-                  <Image
-                    src={hero.image.src}
-                    alt={hero.image.alt}
-                    fill
-                    priority
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover"
-                  />
-                </div>
+          {hero.showImage && hero.image && (
+            <div className="relative overflow-hidden rounded-3xl border border-gray-200 shadow-sm">
+              <div className="relative aspect-4/3">
+                <Image
+                  src={hero.image.src}
+                  alt={hero.image.alt}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
               </div>
-            )}
+            </div>
+          )}
         </div>
       </div>
     </section>

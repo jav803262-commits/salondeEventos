@@ -1,13 +1,12 @@
+import WhatsAppLink from "@/components/whatsapp/WhatsAppLink";
 import { businessData } from "@/data/business";
-import { createWhatsAppLink } from "@/lib/whatsapp";
+import { getWhatsAppLink } from "@/lib/whatsapp";
+
 
 export default function CTA() {
-  const { business, ctaFinal } = businessData;
+  const { business, ctaFinal, whatsapp } = businessData;
 
-  const whatsappLink = createWhatsAppLink(
-    business.whatsapp,
-    business.whatsappMessage
-  );
+  const whatsappLink = getWhatsAppLink(whatsapp);
 
   return (
     <section className="py-16" id="contacto">
@@ -111,26 +110,31 @@ export default function CTA() {
             >
               {ctaFinal.phoneButton.label}
             </a>
+<WhatsAppLink
+  ariaLabel={ctaFinal.whatsappButton.label}
+  className="
+    flex
+    flex-1
+    items-center
+    justify-center
 
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                flex-1
-                rounded-xl
-                bg-green-600
-                px-6
-                py-4
-                text-center
-                font-semibold
-                text-white
-                transition
-                hover:bg-green-700
-              "
-            >
-              {ctaFinal.whatsappButton.label}
-            </a>
+    rounded-xl
+
+    bg-[#25D366]
+
+    px-6
+    py-4
+
+    font-semibold
+    text-white
+
+    transition
+
+    hover:bg-green-700
+  "
+>
+  {ctaFinal.whatsappButton.label}
+</WhatsAppLink>
           </div>
         </div>
       </div>
