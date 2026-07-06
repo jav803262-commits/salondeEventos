@@ -82,6 +82,7 @@ export default function Hero() {
                   className="rounded-xl border border-gray-300 px-6 py-3 text-center font-semibold text-gray-900 transition hover:border-amber-500"
                 >
                   {hero.secondaryButton.text}
+                  
                 </a>
               )}
             </div>

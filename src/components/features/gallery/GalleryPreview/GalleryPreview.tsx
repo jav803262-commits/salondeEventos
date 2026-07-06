@@ -50,9 +50,16 @@ export default function GalleryPreview({ gallery }: GalleryPreviewProps) {
         onClose={() => setOpen(false)}
       />
 
-      <div className="mt-10 flex justify-center">
-        <Button href={section.buttonHref}>{section.buttonText}</Button>
-      </div>
+<div className="mt-10 flex justify-center px-4">
+  <Button
+    href={section.buttonHref} icon="ArrowRight"
+    className="w-full sm:w-auto"
+  >
+    {section.buttonText}
+  </Button>
+</div>
+
+
     </>
   );
 }

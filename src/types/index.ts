@@ -4,6 +4,8 @@
  * ============================================================================
  */
 
+import { IconName } from "@/lib/icons";
+
 export interface Address {
   street: string;
   city: string;
@@ -119,7 +121,7 @@ export interface Service {
   id: number;
   title: string;
   description: string;
-  icon?: string;
+  icon?: IconName;
 }
 
 export interface ServicesSection {
@@ -171,20 +173,21 @@ export interface TestimonialsSection {
  * FAQ
  * ============================================================================
  */
-
-export interface FAQ {
+export interface FAQItem {
   question: string;
   answer: string;
 }
 
+export interface FAQCategory {
+  label?: string;
+  items: FAQItem[];
+}
+
 export interface FAQSection {
   badge: string;
-
   title: string;
-
   description: string;
-
-  items: FAQ[];
+  categories: FAQCategory[];
 }
 
 /**

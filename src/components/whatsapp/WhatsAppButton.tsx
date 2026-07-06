@@ -24,7 +24,8 @@ export default function WhatsAppButton({
         justify-center
 
         rounded-full
-        bg-[#25D366]
+        bg-amber-500
+       
         text-white
 
         shadow-xl

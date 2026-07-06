@@ -1,11 +1,15 @@
+import type { ReactNode } from "react";
+
 interface CardProps {
   title: string;
   description: string;
+  header?: ReactNode;
 }
 
 export default function Card({
   title,
   description,
+  header,
 }: CardProps) {
   return (
     <article
@@ -22,6 +26,12 @@ export default function Card({
         hover:shadow-xl
       "
     >
+      {header && (
+        <div className="mb-4 text-primary">
+          {header}
+        </div>
+      )}
+
       <h3 className="mb-3 text-xl font-semibold">
         {title}
       </h3>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
+import { iconMap, type IconName } from "@/lib/icons";
 import { buttonStyles } from "@/styles/components/button";
 
 interface ButtonProps {
@@ -8,6 +9,8 @@ interface ButtonProps {
   children: ReactNode;
   className?: string;
   external?: boolean;
+  icon?: IconName;
+  iconPosition?: "left" | "right";
 }
 
 export default function Button({
@@ -15,29 +18,37 @@ export default function Button({
   children,
   className = "",
   external = false,
+  icon,
+  iconPosition = "right",
 }: ButtonProps) {
+  const Icon = icon ? iconMap[icon] : null;
+
   const classes = `
     ${buttonStyles.base}
     ${buttonStyles.primary}
     ${className}
   `;
 
-  if (external) {
-    return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={classes}
-      >
-        {children}
-      </a>
-    );
-  }
+  const content = (
+    <>
+      {Icon && iconPosition === "left" && <Icon className="h-5 w-5 shrink-0" />}
+      <span>{children}</span>
+      {Icon && iconPosition === "right" && <Icon className="h-5 w-5 shrink-0" />}
+    </>
+  );
 
-  return (
+  return external ? (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={classes}
+    >
+      {content}
+    </a>
+  ) : (
     <Link href={href} className={classes}>
-      {children}
+      {content}
     </Link>
   );
 }

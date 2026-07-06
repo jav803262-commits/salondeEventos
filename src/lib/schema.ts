@@ -101,20 +101,19 @@ export const localBusinessSchema = {
 
 export const faqSchema = {
   "@context": "https://schema.org",
-
   "@type": "FAQPage",
 
-  mainEntity: businessData.faqSection.items.map((faq) => ({
-    "@type": "Question",
+  mainEntity: businessData.faqSection.categories.flatMap((category) =>
+    category.items.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
 
-    name: faq.question,
-
-    acceptedAnswer: {
-      "@type": "Answer",
-
-      text: faq.answer,
-    },
-  })),
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    }))
+  ),
 };
 
 /**

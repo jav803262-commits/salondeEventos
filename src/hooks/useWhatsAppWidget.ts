@@ -22,7 +22,7 @@ export function useWhatsAppWidget({
     }
 
     const timer = window.setTimeout(() => {
-      setIsGreetingVisible(true);
+      setIsGreetingVisible(false);
     }, delay);
 
     return () => window.clearTimeout(timer);

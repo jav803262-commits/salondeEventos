@@ -3,6 +3,7 @@ import Card from "@/components/ui/Card/Card";
 import Section from "@/components/ui/Section/Section";
 
 import { businessData } from "@/data/business";
+import { iconMap } from "@/lib/icons";
 
 export default function Services() {
   const { servicesSection, services } = businessData;
@@ -18,7 +19,7 @@ export default function Services() {
       <SectionHeader
         title={servicesSection.title}
         subtitle={
-          servicesSection.subtitle ||
+          servicesSection.subtitle ??
           servicesSection.description
         }
       />
@@ -32,13 +33,24 @@ export default function Services() {
           ${columns[servicesSection.columns as 2 | 3 | 4] ?? "lg:grid-cols-3"}
         `}
       >
-        {services.map((service) => (
-          <Card
-            key={service.id}
-            title={service.title}
-            description={service.description}
-          />
-        ))}
+        {services.map((service) => {
+          const Icon = service.icon
+            ? iconMap[service.icon as keyof typeof iconMap]
+            : undefined;
+
+          return (
+            <Card
+              key={service.id}
+              title={service.title}
+              description={service.description}
+              header={
+                Icon ? (
+                  <Icon className="h-10 w-10 text-primary" />
+                ) : undefined
+              }
+            />
+          );
+        })}
       </div>
     </Section>
   );
