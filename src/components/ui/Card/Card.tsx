@@ -2,14 +2,16 @@ import type { ReactNode } from "react";
 
 interface CardProps {
   title: string;
-  description: string;
+  description?: string;
   header?: ReactNode;
+  children?: ReactNode;
 }
 
 export default function Card({
   title,
   description,
   header,
+  children,
 }: CardProps) {
   return (
     <article
@@ -36,9 +38,17 @@ export default function Card({
         {title}
       </h3>
 
-      <p className="text-gray-600">
-        {description}
-      </p>
+      {description && (
+        <p className="text-gray-600">
+          {description}
+        </p>
+      )}
+
+      {children && (
+        <div className={description ? "mt-5" : ""}>
+          {children}
+        </div>
+      )}
     </article>
   );
 }

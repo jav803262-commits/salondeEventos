@@ -1,9 +1,15 @@
+import Button from "@/components/ui/Button/Button";
 import SectionHeader from "@/components/ui/SectionHeader/SectionHeader";
 
 import { businessData } from "@/data/business";
 
 export function Map() {
-  const { name, mapEmbedUrl, address } = businessData.business;
+  const {
+    name,
+    mapEmbedUrl,
+    googleMapsUrl,
+    address,
+  } = businessData.business;
 
   if (!mapEmbedUrl) {
     return null;
@@ -21,28 +27,37 @@ export function Map() {
           subtitle="Encuéntranos fácilmente."
         />
 
-        <div className="overflow-hidden rounded-2xl shadow-lg">
+        <div className=" mt-2 p-1 overflow-hidden rounded-1xl  shadow-md">
           <iframe
             title={`Mapa de ${name}`}
             src={mapEmbedUrl}
-            width="100%"
-            height="350"
             loading="lazy"
             allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"
-            className="border-0"
+            className="h-87.5 w-full border-0 md:h-112.5"
           />
         </div>
 
-        <div className="mt-8 text-center">
+        <div className="mt-5 flex flex-col items-center text-center">
           <p className="text-lg font-semibold">
             Dirección
           </p>
 
-          <p className="text-muted-foreground">
-            {address.street}, {address.city},{" "}
-            {address.state}, {address.postalCode}
+          <p className="mt-2 max-w-2xl text-muted-foreground">
+            {address.street}, {address.city}, {address.state},{" "}
+            {address.postalCode}
           </p>
+
+          {googleMapsUrl && (
+            <Button
+              href={googleMapsUrl}
+              external
+              icon="MapPinned"
+              className="mt-2 w-full sm:w-auto"
+            >
+              Abrir en Google Maps
+            </Button>
+          )}
         </div>
       </div>
     </section>

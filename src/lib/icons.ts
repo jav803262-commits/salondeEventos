@@ -6,7 +6,15 @@ import {
   MapPin,
   Building,
   Martini,
-  PartyPopper
+  PartyPopper,
+  MapPinned,
+  Mail,
+  Clock3,
+  Star,
+  Check,
+  ChevronRight,
+  Menu,
+  X,
 } from "lucide-react";
 
 export const iconMap = {
@@ -17,7 +25,15 @@ export const iconMap = {
   MapPin,
   Building,
   Martini,
-  PartyPopper
+  PartyPopper,
+  MapPinned,
+  Mail,
+  Clock3,
+  Star,
+  Check,
+  ChevronRight,
+  Menu,
+  X,
 } as const;
 
 export type IconName = keyof typeof iconMap;

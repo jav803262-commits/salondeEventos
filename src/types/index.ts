@@ -212,10 +212,19 @@ export interface Settings {
 
   showContactForm: boolean;
 
+
+  showCTAPhone: boolean;
+  showCTAEmail: boolean;
+  showCTAAddress: boolean;
+
+
   showFooterPhone: boolean;
   showFooterEmail: boolean;
   showFooterAddress: boolean;
   showFooterDeveloperCredit: boolean;
+
+
+
 }
 
 /**

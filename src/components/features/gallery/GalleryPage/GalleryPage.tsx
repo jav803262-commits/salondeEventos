@@ -18,7 +18,7 @@ export default function GalleryPage({
   gallery,
 }: GalleryPageProps) {
   const { section, images } = gallery;
-  const previewImages = images.slice(0, section.previewCount);
+  const previewImages = images;
     const [open, setOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -31,7 +31,7 @@ export default function GalleryPage({
       />
 
       <GalleryGrid
-        images={previewImages}
+        images={gallery.images}
         priorityImages={2}
         className="mt-10"
         onImageClick={(index) => {

@@ -11,21 +11,33 @@ interface ButtonProps {
   external?: boolean;
   icon?: IconName;
   iconPosition?: "left" | "right";
+  variant?: "primary" | "secondary" | "outline" | "ghost";
+
 }
 
+const variantStyles: Record<
+  NonNullable<ButtonProps["variant"]>,
+  string
+> = {
+  primary: buttonStyles.primary,
+  secondary: buttonStyles.secondary,
+  outline: buttonStyles.outline,
+  ghost: buttonStyles.ghost,
+};
 export default function Button({
   href,
   children,
   className = "",
   external = false,
   icon,
-  iconPosition = "right",
+  iconPosition = "right",  
+  variant = "primary"
 }: ButtonProps) {
   const Icon = icon ? iconMap[icon] : null;
 
   const classes = `
     ${buttonStyles.base}
-    ${buttonStyles.primary}
+    ${variantStyles[variant]}
     ${className}
   `;
 

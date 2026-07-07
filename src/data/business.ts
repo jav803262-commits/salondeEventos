@@ -200,7 +200,7 @@ heroSection: {
   },
 
   image: {
-    src:`${HERO}/hero.jpg` ,
+    src:`${HERO}/hero-a.jpg` ,
    alt: "Salón Jardín Esmeralda, área de jardín para eventos",
   },
   features: [
@@ -474,10 +474,17 @@ faqSection: {
     showServices: true,
     showGallery: true,
 
+    //CTA
+    showCTAPhone:   false,
+    showCTAEmail: false,
+    showCTAAddress: false,
+  
+  
+
     // Footer
   showFooterPhone: true,
-  showFooterEmail: true,
-  showFooterAddress: true,
+  showFooterEmail: false,
+  showFooterAddress: false,
   showFooterDeveloperCredit: true,
 
 
@@ -515,12 +522,12 @@ ctaFinal: {
     "Contáctanos hoy mismo y aparta la fecha de tu celebración antes de que se agote.",
 
   phoneButton: {
-    label: "📞 Llamar ahora",
+    label: "Llamar ahora",
     type: "phone",
   },
 
   whatsappButton: {
-    label: "💬 Cotizar por WhatsApp",
+    label: "Cotizar por WhatsApp",
     type: "whatsapp",
   },
 },

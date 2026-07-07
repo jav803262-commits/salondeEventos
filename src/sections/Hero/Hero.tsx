@@ -1,12 +1,14 @@
 import Image from "next/image";
 
 import { businessData } from "@/data/business";
-import { createWhatsAppLink } from "@/lib/whatsapp";
+
 
 import { getWhatsAppLink } from "@/lib/whatsapp";
 import WhatsAppLink from "@/components/whatsapp/WhatsAppLink";
+import Button from "@/components/ui/Button/Button";
+import { Check } from "lucide-react";
 
-const whatsappUrl = getWhatsAppLink(businessData.whatsapp);
+
 
 export default function Hero() {
   const hero = businessData.heroSection;
@@ -48,7 +50,7 @@ export default function Hero() {
                       aria-hidden="true"
                       className="font-bold text-amber-500"
                     >
-                      ✓
+                      <Check className="h-4 w-4 text-primary" />
                     </span>
 
                     <span>{feature.text}</span>
@@ -76,14 +78,12 @@ export default function Hero() {
               </WhatsAppLink>
 
               {hero.showSecondaryButton && hero.secondaryButton && (
-                <a
-                  href={hero.secondaryButton.href}
-                  aria-label={hero.secondaryButton.text}
-                  className="rounded-xl border border-gray-300 px-6 py-3 text-center font-semibold text-gray-900 transition hover:border-amber-500"
-                >
-                  {hero.secondaryButton.text}
-                  
-                </a>
+<Button
+  href={hero.secondaryButton.href}
+  variant="secondary"
+>
+  {hero.secondaryButton.text}
+</Button>
               )}
             </div>
 

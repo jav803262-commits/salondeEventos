@@ -43,7 +43,7 @@ const categories: GalleryCategory[] = [
 const images: GalleryImage[] = [
   {
     id: 1,
-    src: `${GALLERY_PATHS.instalaciones}/comida.jpg`,
+    src: `${GALLERY_PATHS.instalaciones}/salon-evento1.jpg`,
     alt: "Sala principal de velación",
 
     title: "Sala principal",
@@ -59,7 +59,7 @@ const images: GalleryImage[] = [
 
   {
     id: 2,
-    src: `${GALLERY_PATHS.instalaciones}/ciudad-uno.jpg`,
+    src: `${GALLERY_PATHS.instalaciones}/salon-evento2.jpg`,
     alt: "Área de recepción",
 
     title: "Recepción",
@@ -73,7 +73,7 @@ const images: GalleryImage[] = [
 
   {
     id: 3,
-    src: `${GALLERY_PATHS.instalaciones}/habitacion-uno.jpg`,
+    src: `${GALLERY_PATHS.instalaciones}/salon-evento3.jpg`,
     alt: "Capilla",
 
     title: "Capilla",
@@ -87,7 +87,7 @@ const images: GalleryImage[] = [
 
   {
     id: 4,
-    src: `${GALLERY_PATHS.instalaciones}/habitacion-dos.jpg`,
+    src: `${GALLERY_PATHS.instalaciones}/salon-evento4.jpg`,
     alt: "Área de descanso",
 
     title: "Área de descanso",
@@ -101,7 +101,7 @@ const images: GalleryImage[] = [
 
   {
     id: 5,
-    src: `${GALLERY_PATHS.instalaciones}/viaje-uno.jpg`,
+    src: `${GALLERY_PATHS.instalaciones}/salon-evento5.jpg`,
     alt: "Jardín",
     title: "Jardín",
     description:
@@ -111,17 +111,35 @@ const images: GalleryImage[] = [
   },
   {
     id: 6,
-    src: `${GALLERY_PATHS.instalaciones}/viaje-dos.jpg`,
+    src: `${GALLERY_PATHS.instalaciones}/salon-evento6.jpg`,
     alt: "Área de eventos", 
     title: "Área de eventos",
     description:
       "Espacio dedicado a celebrar ocasiones especiales.",
     categorySlug: "instalaciones",
     order: 6,
+      },
+      {
+    id: 7,
+    src: `${GALLERY_PATHS.instalaciones}/salon-evento7.jpg`,
+    alt: "Área de descanso exterior",
+    title: "Área de descanso exterior",
+    description:
+      "Espacio al aire libre para relajarse y disfrutar del entorno.",
+    categorySlug: "instalaciones",
+    order: 7,
+  },
+  {
+    id: 8,
+    src: `${GALLERY_PATHS.instalaciones}/salon-evento8.jpg`,
+    alt: "Área de eventos al aire libre",   
+  title: "Área de eventos al aire libre",   
+    description:
+      "Espacio al aire libre para celebrar ocasiones especiales.",
+    categorySlug: "instalaciones",  
+  order: 8,                
+
   }
-  
-
-
 ];
 
 
