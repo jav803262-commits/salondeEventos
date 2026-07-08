@@ -9,12 +9,18 @@ import Button from "@/components/ui/Button/Button";
 
 export default function Gallery() {
   return (
-    <section className="py-16">
-      <div className="mb-8">
-        <Button href="/" className="inline-flex items-center gap-2" icon="ArrowLeft" iconPosition="left">
-                   Regresar al inicio
-        </Button>
-      </div>
+    <section className="py-8 sm:py-12 lg:py-16" id="galleria">
+       <div className=" flex justify-center px-4">
+              <Button
+                href="/"
+                icon="ArrowLeft"
+                iconPosition="left"
+                className="w-full sm:w-auto"
+                variant="secondary"
+              >
+               Regresar al inicio
+              </Button>
+            </div>
       <Container>
         <GalleryPage gallery={galleryData} />
       </Container>

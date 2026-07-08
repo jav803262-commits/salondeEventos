@@ -46,6 +46,7 @@ export default function GalleryCard({
       `}
       role={clickable ? "button" : undefined}
       tabIndex={clickable ? 0 : undefined}
+      aria-label={clickable ? `Ver imagen: ${image.alt}` : undefined}
       onClick={clickable ? () => onClick(image) : undefined}
       onKeyDown={handleKeyDown}
     >

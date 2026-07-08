@@ -9,7 +9,7 @@ export default function Gallery() {
   return (
     <section id="gallery">
       <Container>
-        <GalleryPreview gallery={galleryData} />
+        <GalleryPreview gallery={galleryData} />      
       </Container>
     </section>
   );

@@ -1,18 +1,25 @@
-/** Gallery Preview Component */
-"use client";
-
 /**
  * GalleryPreview es un Client Component porque administra la
  * interacción de la galería (selección de imágenes, Lightbox, etc.).
+ *
+ * GalleryViewer se carga de forma diferida (dynamic import) para no
+ * incluir el peso del lightbox (plugins + CSS) en el bundle inicial
+ * de la landing page. Solo se descarga cuando el usuario abre una imagen.
  */
+"use client";
 
-import type { GalleryData, GalleryImage } from "@/types";
 import { useState } from "react";
+import dynamic from "next/dynamic";
+
+import type { GalleryData } from "@/types";
 
 import SectionHeader from "@/components/ui/SectionHeader/SectionHeader";
-import GalleryGrid from "../GalleryGrid/GalleryGrid";
+import GalleryGrid from "../GalleryGrid";
 import Button from "@/components/ui/Button/Button";
-import GalleryViewer from "../GalleryViewer";
+
+const GalleryViewer = dynamic(() => import("../GalleryViewer"), {
+  ssr: false,
+});
 
 interface GalleryPreviewProps {
   gallery: GalleryData;
@@ -43,23 +50,25 @@ export default function GalleryPreview({ gallery }: GalleryPreviewProps) {
         }}
       />
 
-      <GalleryViewer
-        images={previewImages}
-        open={open}
-        index={currentIndex}
-        onClose={() => setOpen(false)}
-      />
+      {open && (
+        <GalleryViewer
+          images={previewImages}
+          open={open}
+          index={currentIndex}
+          onClose={() => setOpen(false)}
+        />
+      )}
 
-<div className="mt-10 flex justify-center px-4">
-  <Button
-    href={section.buttonHref} icon="ArrowRight"
-    className="w-full sm:w-auto"
-  >
-    {section.buttonText}
-  </Button>
-</div>
-
-
+      <div className="mt-10 flex justify-center px-4">
+        <Button
+          href={section.buttonHref}
+          icon="ArrowRight"
+          className="w-full sm:w-auto"
+          variant="secondary"
+        >
+          {section.buttonText}
+        </Button>
+      </div>
     </>
   );
 }
