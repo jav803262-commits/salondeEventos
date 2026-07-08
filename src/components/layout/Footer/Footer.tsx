@@ -13,7 +13,7 @@ export default function Footer() {
           {settings.showFooterPhone && (
             <a href={`tel:${business.phone}`} className="hover:text-primary">
               {" "}
-              {business.phone}{" "}
+              {business.displayPhone}{" "}
             </a>
           )}
 
