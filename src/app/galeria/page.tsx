@@ -4,7 +4,7 @@ import { GalleryPage } from "@/components/features/gallery";
 import Container from "@/components/ui/Container/Container";
 
 
-import { galleryData } from "@/data/gallery";
+import { galleryData } from "@/data/business/gallery";
 import Button from "@/components/ui/Button/Button";
 
 export default function Gallery() {
