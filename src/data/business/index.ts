@@ -1,0 +1,53 @@
+/**
+ * ============================================================================
+ * BUSINESS DATA — ÍNDICE
+ * ============================================================================
+ * Reensambla el objeto `businessData` a partir de los módulos individuales.
+ * Todo lo que el cliente puede modificar sigue viviendo en cada archivo,
+ * pero ahora dividido por sección para que sea más fácil de mantener.
+ * ============================================================================
+ */
+
+import type { BusinessData } from "@/types";
+
+// Datos "duros" del negocio (identidad, ubicación, horarios).
+import { business } from "./business";
+// Estructura del menú del sitio (casi no cambia entre clientes).
+import { navigation } from "./navigation";
+// Metadatos de posicionamiento (se edita seguido por marketing).
+import { seo } from "./seo";
+// Canal de contacto por WhatsApp.
+import { whatsapp } from "./contact";
+// Sección hero (portada) de la landing.
+import { heroSection } from "./hero";
+// Sección y listado de servicios ofrecidos.
+import { servicesSection, services } from "./services";
+// Testimonios de clientes y su encabezado de sección.
+import { testimonials, testimonialsSection } from "./testimonial";
+// Preguntas frecuentes agrupadas por categoría.
+import { faqSection } from "./faq";
+// Flags que prenden/apagan secciones y elementos de la UI.
+import { settings } from "./settings";
+// Sección final de llamado a la acción (antes del footer).
+import { ctaFinal } from "./cta";
+
+// ⚠️ `gallery` no se importa aún: el objeto original no traía datos de
+// galería (ver comentario en gallery.ts). Impórtalo aquí cuando lo definas
+// en @/types y lo agregues al objeto de abajo.
+
+export const businessData: BusinessData = {
+  business, // business.ts
+  whatsapp, // contact.ts
+  navigation, // navigation.ts
+  heroSection, // hero.ts
+  servicesSection, // services.ts
+  services, // services.ts
+  testimonials, // testimonials.ts
+  testimonialsSection, // testimonials.ts
+  faqSection, // faq.ts
+  settings, // settings.ts
+  seo, // seo.ts
+  ctaFinal, // cta.ts
+};
+
+export default businessData;
