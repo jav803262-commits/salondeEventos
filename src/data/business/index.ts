@@ -31,9 +31,10 @@ import { settings } from "./settings";
 // Sección final de llamado a la acción (antes del footer).
 import { ctaFinal } from "./cta";
 
-// ⚠️ `gallery` no se importa aún: el objeto original no traía datos de
-// galería (ver comentario en gallery.ts). Impórtalo aquí cuando lo definas
-// en @/types y lo agregues al objeto de abajo.
+// Galería: tipo distinto (GalleryData), no se mezcla en el objeto
+// businessData de abajo. Se re-exporta para que todo se importe desde
+// un mismo punto: import { businessData, galleryData } from "@/data/business".
+export { galleryData } from "./gallery";
 
 export const businessData: BusinessData = {
   business, // business.ts

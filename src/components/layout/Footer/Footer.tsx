@@ -1,5 +1,6 @@
 import Container from "@/components/ui/Container/Container";
-import { businessData } from "@/data/business";
+import businessData from "@/data/business/index";
+
 
 export default function Footer() {
   const { business, settings } = businessData;

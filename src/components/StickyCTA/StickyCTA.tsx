@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./StickyCTA.module.css";
-import { businessData } from "@/data/business";
+import businessData from "@/data/business/index";
 
 export default function StickyCTA() {
   return (

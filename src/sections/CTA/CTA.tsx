@@ -1,7 +1,7 @@
 import Button from "@/components/ui/Button/Button";
 import WhatsAppLink from "@/components/whatsapp/WhatsAppLink";
 
-import { businessData } from "@/data/business";
+import businessData from "@/data/business/index";
 
 export default function CTA() {
   const { business, ctaFinal, settings } = businessData;

@@ -1,8 +1,9 @@
 import Container from "@/components/ui/Container/Container";
 
-import { galleryData } from "@/data/business/gallery";
+
 
 import GalleryPreview from "@/components/features/gallery/GalleryPreview/GalleryPreview";
+import { galleryData } from "@/data/business/index";
 
 export default function Gallery() {
   return (

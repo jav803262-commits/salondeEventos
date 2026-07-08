@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import { businessData } from "@/data/business";
+import businessData from "@/data/business/index";
 import {
   getWhatsAppLink,
   isWhatsAppConfigured,

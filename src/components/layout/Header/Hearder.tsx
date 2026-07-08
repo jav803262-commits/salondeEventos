@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import Container from "@/components/ui/Container/Container";
 
-import { businessData } from "@/data/business";
+import businessData from "@/data/business/index";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);

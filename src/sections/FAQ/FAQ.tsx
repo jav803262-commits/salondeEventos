@@ -1,6 +1,5 @@
 import SectionHeader from "@/components/ui/SectionHeader/SectionHeader";
-
-import { businessData } from "@/data/business";
+import businessData from "@/data/business/index";
 
 export default function FAQ() {
   const { faqSection } = businessData;
