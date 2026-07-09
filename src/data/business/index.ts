@@ -29,7 +29,7 @@ import { faqSection } from "./faq";
 // Flags que prenden/apagan secciones y elementos de la UI.
 import { settings } from "./settings";
 // Sección final de llamado a la acción (antes del footer).
-import { ctaFinal } from "./cta";
+import { ctaSections } from "./cta";
 
 // Galería: tipo distinto (GalleryData), no se mezcla en el objeto
 // businessData de abajo. Se re-exporta para que todo se importe desde
@@ -48,7 +48,7 @@ export const businessData: BusinessData = {
   faqSection, // faq.ts
   settings, // settings.ts
   seo, // seo.ts
-  ctaFinal, // cta.ts
+  ctaSections, // cta.ts
 };
 
 export default businessData;

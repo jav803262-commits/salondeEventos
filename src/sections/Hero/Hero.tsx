@@ -12,7 +12,7 @@ export default function Hero() {
     <section
       id="inicio"
       aria-labelledby="hero-title"
-      className="overflow-hidden bg-white py-6 md:py-20"
+      className="overflow-hidden bg-white py-6 md:py-6"
     >
       <div className="mx-auto max-w-7xl px-4">
         <div className="grid md:grid-cols-2 md:items-center md:gap-10">

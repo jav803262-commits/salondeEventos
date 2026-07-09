@@ -8,7 +8,7 @@ export default function FAQ() {
     <section
       id="faq"
       aria-labelledby="faq-title"
-      className="bg-white py-16 md:py-24"
+      className="bg-white py-16 md:py-16"
     >
       <div className="mx-auto max-w-4xl px-6">
         <SectionHeader

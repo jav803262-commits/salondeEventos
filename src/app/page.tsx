@@ -11,10 +11,10 @@ import Services from "@/sections/Services/Services";
 import Testimonials from "@/sections/Testimonials/Testimonials";
 import Image from "next/image";
 import StickyCTA from "@/components/StickyCTA/StickyCTA";
-import { businessData } from "@/data/business";
 import { Map } from "@/sections/Map/Map";
 import Gallery from "@/sections/Gallery/Gallery";
 import WhatsAppWidget from "@/components/whatsapp/WhatsAppWidget";
+import businessData from "@/data/business/index";
 
 
 export default function Home() {
@@ -27,13 +27,15 @@ export default function Home() {
         
         <Services />
         {businessData.settings.showGallery && <Gallery />}
+
+         <CTA config={businessData.ctaSections.reservation} />
        
         {businessData.settings.showTestimonials && <Testimonials />}
         {businessData.settings.showFAQ && <FAQ />}
         
         {businessData.settings.showMap && <Map />}
         
-        <CTA />
+        <CTA config={businessData.ctaSections.quote} />
        
       </main>
 

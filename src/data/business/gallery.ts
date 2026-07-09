@@ -44,7 +44,7 @@ const section: GallerySection = {
   description:
     "Explora nuestros espacios y descubre el ambiente perfecto para celebrar tu evento, desde el jardín hasta el salón principal.",
 
-  previewCount: 4,
+  previewCount: 3,
 
   buttonText: "Ver galería completa",
 

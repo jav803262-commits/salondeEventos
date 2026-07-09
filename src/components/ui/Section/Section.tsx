@@ -12,7 +12,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className="py-16 md:py-24"
+      className="py-16 md:py-16"
     >
       <Container>
         {children}

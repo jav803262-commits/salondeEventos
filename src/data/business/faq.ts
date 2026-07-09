@@ -11,114 +11,71 @@ export const faqSection: BusinessData["faqSection"] = {
   description:
     "Todo lo que necesitas saber antes de reservar tu evento con nosotros.",
 
-  categories: [
-    {
-      label: "Reservaciones y pagos",
+categories: [
+  {
+    label: "Reservaciones",
 
-      items: [
-        {
-          question: "¿Con cuánto tiempo de anticipación debo reservar?",
-          answer:
-            "Recomendamos reservar con al menos 3 meses de anticipación, especialmente para fechas en fin de semana.",
-        },
+    items: [
+      {
+        question: "¿Cómo puedo reservar una fecha?",
+        answer:
+          "Puedes reservar llamándonos, por WhatsApp o mediante el formulario de contacto. Para confirmar la fecha solicitamos un anticipo."
+      },
 
-        {
-          question: "¿Qué formas de pago aceptan?",
-          answer:
-            "Aceptamos efectivo, tarjeta de crédito/débito y transferencia bancaria, con un anticipo del 50% para apartar la fecha.",
-        },
+      {
+        question: "¿Con cuánto tiempo de anticipación debo reservar?",
+        answer:
+          "Lo ideal es reservar con al menos 3 meses de anticipación, especialmente para fechas de alta demanda."
+      },
 
-        {
-          question: "¿Puedo cancelar o cambiar la fecha de mi evento?",
-          answer:
-            "Sí, aplican políticas de cambio y cancelación según el tiempo de anticipación; te las explicamos al momento de firmar el contrato.",
-        },
+      {
+        question: "¿Qué formas de pago aceptan?",
+        answer:
+          "Aceptamos efectivo, transferencia bancaria y tarjetas de crédito o débito."
+      }
+    ]
+  },
 
-        {
-          question: "¿Cómo solicito una cotización?",
-          answer:
-            "Puedes llamarnos, escribirnos por WhatsApp o llenar el formulario de contacto para recibir una cotización personalizada.",
-        },
+  {
+    label: "El salón",
 
-        {
-          question: "¿Puedo hacer una visita antes de contratar?",
-          answer:
-            "Sí, puedes agendar una visita guiada para conocer las instalaciones antes de reservar.",
-        },
-      ],
-    },
+    items: [
+      {
+        question: "¿Cuál es la capacidad y qué incluye la renta?",
+        answer:
+          "Nuestro salón tiene capacidad para 500 personas. La renta incluye mobiliario básico y podrás conocer todos los servicios incluidos al solicitar una cotización."
+      },
 
-    {
-      label: "Instalaciones",
+      {
+        question: "¿Cuentan con estacionamiento y acceso para personas con discapacidad?",
+        answer:
+          "Sí, contamos con estacionamiento privado, rampas de acceso y sanitarios adaptados."
+      }
+    ]
+  },
 
-      items: [
-        {
-          question: "¿Cuál es la capacidad máxima del salón?",
-          answer:
-            "Nuestro salón principal tiene capacidad para 500 personas, incluyendo el área de jardín al aire libre.",
-        },
+  {
+    label: "Servicios",
 
-        {
-          question: "¿Cuentan con estacionamiento?",
-          answer:
-            "Sí, contamos con estacionamiento privado y vigilado para 100 vehículos.",
-        },
+    items: [
+      {
+        question: "¿Puedo contratar proveedores externos?",
+        answer:
+          "Sí. Puedes traer tu propio banquete, DJ o grupo musical, siempre respetando las políticas del salón."
+      },
 
-        {
-          question: "¿El salón está climatizado?",
-          answer:
-            "Sí, el salón principal cuenta con aire acondicionado y calefacción según la temporada.",
-        },
+      {
+        question: "¿Ofrecen paquetes para diferentes tipos de eventos?",
+        answer:
+          "Sí. Contamos con opciones para bodas, XV años, cumpleaños, eventos empresariales y reuniones sociales."
+      },
 
-        {
-          question: "¿Incluyen mobiliario y decoración básica?",
-          answer:
-            "Sí, el paquete básico incluye mesas, sillas, manteles y centros de mesa sencillos.",
-        },
-
-        {
-          question: "¿Tienen área para niños?",
-          answer:
-            "Sí, contamos con un área de jardín adicional que puede habilitarse con inflables y juegos para niños.",
-        },
-
-        {
-          question:
-            "¿El salón cuenta con acceso para personas con discapacidad?",
-          answer:
-            "Sí, contamos con rampas de acceso y sanitarios adaptados en todas las áreas del salón.",
-        },
-      ],
-    },
-
-    {
-      label: "Servicios y el día del evento",
-
-      items: [
-        {
-          question: "¿El precio de renta incluye el banquete?",
-          answer:
-            "No, la renta del salón y el banquete se cotizan por separado, aunque contamos con paquetes que combinan ambos con descuento.",
-        },
-
-        {
-          question: "¿Puedo llevar mi propio proveedor de banquete?",
-          answer:
-            "Sí, puedes contratar proveedores externos, aunque también ofrecemos servicio de banquete propio con opción a degustación previa.",
-        },
-
-        {
-          question: "¿Ofrecen paquetes para eventos corporativos?",
-          answer:
-            "Sí, tenemos paquetes especiales para conferencias, cenas de fin de año y presentaciones de producto.",
-        },
-
-        {
-          question: "¿Permiten música en vivo o DJ?",
-          answer:
-            "Sí, puedes contratar tu propio DJ, grupo musical o banda, siempre respetando el horario permitido del salón.",
-        },
-      ],
-    },
-  ],
+      {
+        question: "¿Puedo visitar el salón antes de contratar?",
+        answer:
+          "Sí. Agenda una visita sin compromiso para conocer las instalaciones y resolver cualquier duda."
+      }
+    ]
+  }
+],
 };

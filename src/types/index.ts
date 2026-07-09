@@ -280,21 +280,33 @@ export interface GalleryData {
  * ============================================================================
  */
 
-export interface CTAFinalButton {
+
+export interface CTAButton {
   label: string;
   type: "phone" | "whatsapp";
 }
 
-export interface CTAFinalSection {
-  badge: string;
+export interface CTASection {
+  badge?: string;
   title: string;
   description: string;
 
-  phoneButton: CTAFinalButton;
-  whatsappButton: CTAFinalButton;
+  phoneButton?: CTAButton;
+  whatsappButton?: CTAButton;
 }
 
+export type CTASections = Record<string, CTASection>;
+
+
+
 /**
+ * 
+ * export interface CTASections {
+  reservation: CTASection;
+  quote: CTASection;
+  visit: CTASection;
+  footer: CTASection;
+}
  * ============================================================================
  * SEO
  * ============================================================================
@@ -367,7 +379,8 @@ whatsapp: WhatsAppConfig;
 
   seo: SEO;
 
-  ctaFinal: CTAFinalSection;
+  ctaSections: Record<string, CTASection>;
+  
 
 }
 
