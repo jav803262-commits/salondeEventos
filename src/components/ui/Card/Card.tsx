@@ -24,8 +24,8 @@ export default function Card({
         shadow-sm
         transition-all
         duration-300
-        hover:-translate-y-2
-        hover:shadow-xl
+        [@media(hover:hover)]:hover:-translate-y-2
+        [@media(hover:hover)]:hover:shadow-xl
       "
     >
       {header && (

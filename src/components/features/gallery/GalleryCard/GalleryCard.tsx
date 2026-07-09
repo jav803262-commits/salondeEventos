@@ -3,7 +3,7 @@ import Image from "next/image";
 import type { GalleryImage } from "@/types";
 
 interface GalleryCardProps {
- image: GalleryImage;
+  image: GalleryImage;
   priority?: boolean;
   className?: string;
   onClick?: (image: GalleryImage) => void;
@@ -40,9 +40,10 @@ export default function GalleryCard({
         transition-shadow
         ${
           clickable
-            ? "cursor-pointer hover:shadow-lg"
+            ? "cursor-pointer [@media(hover:hover)]:hover:shadow-lg"
             : "cursor-default"
         }
+        ${className}
       `}
       role={clickable ? "button" : undefined}
       tabIndex={clickable ? 0 : undefined}
@@ -56,7 +57,7 @@ export default function GalleryCard({
           alt={image.alt}
           fill
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-cover transition-transform duration-500 [@media(hover:hover)]:group-hover:scale-105"
           priority={priority}
         />
       </div>

@@ -10,33 +10,6 @@
  * - Título principal.
  * - Subtítulo opcional.
  * - Alineación centrada o izquierda.
- * - Nivel semántico configurable (h1, h2, h3).
- * - Compatible con aria-labelledby.
- * - Permite personalizar estilos mediante className.
- *
- * Ejemplo:
- *
- * <SectionHeader
- *   badge="Servicios"
- *   title="Todo lo que ofrecemos"
- *   subtitle="Conoce nuestros principales servicios."
- * />
- *
- * ============================================================================
- */
-
-/**
- * ============================================================================
- * SECTION HEADER
- * ============================================================================
- *
- * Encabezado reutilizable para las diferentes secciones del sitio.
- *
- * Características:
- * - Badge opcional.
- * - Título principal.
- * - Subtítulo opcional.
- * - Alineación centrada o izquierda.
  * - Nivel semántico configurable (h1, h2 o h3).
  * - Compatible con aria-labelledby.
  * - Permite agregar clases personalizadas.
@@ -124,7 +97,7 @@ export default function SectionHeader({
 
       <Heading
         id={headingId}
-        className="mt-4 text-3xl font-bold tracking-tight md:text-5xl"
+        className="mt-4 text-balance text-3xl font-bold tracking-tight md:text-5xl"
       >
         {title}
       </Heading>
@@ -134,7 +107,9 @@ export default function SectionHeader({
           className="
             mx-auto
             mt-4
+            mb-6
             max-w-2xl
+            text-balance
             text-base
             leading-7
             text-muted-foreground

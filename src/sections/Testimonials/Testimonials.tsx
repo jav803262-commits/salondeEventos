@@ -1,6 +1,9 @@
 import Image from "next/image";
+import { MapPin } from "lucide-react";
 
 import SectionHeader from "@/components/ui/SectionHeader/SectionHeader";
+import Section from "@/components/ui/Section/Section";
+import Container from "@/components/ui/Container/Container";
 
 import { businessData } from "@/data/business";
 
@@ -16,16 +19,13 @@ export default function Testimonials() {
     }[testimonialsSection.columns] ?? "lg:grid-cols-3";
 
   return (
-    <section
-      id="testimonials"
-      aria-labelledby="testimonials-heading"
-      className="py-16"
-    >
-      <div className="container mx-auto px-4">
+    <Section id="testimonials" aria-labelledby="testimonials-heading">
+      <Container>
         <SectionHeader
           badge={testimonialsSection.badge}
           title={testimonialsSection.title}
           subtitle={testimonialsSection.description}
+          headingId="testimonials-heading"
         />
 
         <div
@@ -47,8 +47,8 @@ export default function Testimonials() {
                 p-6
                 transition-all
                 duration-300
-                hover:-translate-y-1
-                hover:border-amber-500
+                [@media(hover:hover)]:hover:-translate-y-1
+                [@media(hover:hover)]:hover:border-amber-500
               "
             >
               <div className="flex items-center gap-4">
@@ -72,8 +72,12 @@ export default function Testimonials() {
 
                   {testimonialsSection.showLocation &&
                     testimonial.location && (
-                      <p className="mt-1 text-sm text-gray-500">
-                        📍 {testimonial.location}
+                      <p className="mt-1 flex items-center gap-1 text-sm text-gray-400">
+                        <MapPin
+                          className="h-3.5 w-3.5"
+                          aria-hidden="true"
+                        />
+                        {testimonial.location}
                       </p>
                     )}
 
@@ -91,6 +95,7 @@ export default function Testimonials() {
                             ? "text-amber-500"
                             : "text-neutral-700"
                         }
+                        aria-hidden="true"
                       >
                         ★
                       </span>
@@ -111,7 +116,7 @@ export default function Testimonials() {
             </article>
           ))}
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }
