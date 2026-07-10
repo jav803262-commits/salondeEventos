@@ -1,4 +1,5 @@
 import type { BusinessData } from "@/types";
+import { business } from "./business";
 
 /**
  * WhatsApp Configuration
@@ -7,7 +8,7 @@ export const whatsapp: BusinessData["whatsapp"] = {
   enabled: true,
 
   // ✅ Verificado: mismo número que business.phone.
-  phone: "529515557788",
+  phone: business.phone,
 
   message: "Hola, me gustaría cotizar un evento en el salón.",
 

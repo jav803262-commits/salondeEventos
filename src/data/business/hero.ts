@@ -1,6 +1,7 @@
 import type { BusinessData } from "@/types";
 
 import { IMAGE_PATHS } from "@/constants/image-paths";
+import { business } from "./business";
 
 const HERO = IMAGE_PATHS.hero;
 
@@ -24,7 +25,7 @@ export const heroSection: BusinessData["heroSection"] = {
   secondaryButton: {
     text: "Llamar ahora",
     // ✅ Verificado: mismo número que business.phone/whatsapp.phone.
-    href: "tel:+529515557788",
+    href: `tel:${business.phone}`,
   },
 
   image: {

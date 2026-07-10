@@ -24,8 +24,8 @@ export const business: BusinessData["business"] = {
   name: "Salón Jardín Esmeralda",
 
   // ✅ Verificado: mismo número usado en whatsapp.phone y en el tel: del hero.
-  phone: "+529515557788",
-  displayPhone: "(951) 555-7788",
+  phone: "+529711459413",
+  displayPhone: "(971) 145-9413",
 
   email: "eventos@jardinesmeralda.com",
 
