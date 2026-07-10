@@ -5,14 +5,14 @@ import Section from "@/components/ui/Section/Section";
 import { businessData } from "@/data/business";
 import { iconMap } from "@/lib/icons";
 
+const columns = {
+  2: "lg:grid-cols-2",
+  3: "lg:grid-cols-3",
+  4: "lg:grid-cols-4",
+} as const;
+
 export default function Services() {
   const { servicesSection, services } = businessData;
-
-  const columns = {
-    2: "lg:grid-cols-2",
-    3: "lg:grid-cols-3",
-    4: "lg:grid-cols-4",
-  };
 
   return (
     <Section id="servicios">
@@ -25,13 +25,10 @@ export default function Services() {
       />
 
       <div
-        className={`
-          mt-8
-          grid
-          gap-5
-          sm:grid-cols-2
-          ${columns[servicesSection.columns as 2 | 3 | 4] ?? "lg:grid-cols-3"}
-        `}
+        className={`mt-8 grid gap-5 sm:grid-cols-2 ${
+          columns[servicesSection.columns as keyof typeof columns] ??
+          "lg:grid-cols-3"
+        }`}
       >
         {services.map((service) => {
           const Icon = service.icon
@@ -45,7 +42,12 @@ export default function Services() {
               description={service.description}
               header={
                 Icon ? (
-                  <Icon className="h-10 w-10 text-primary" />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 ring-1 ring-primary/10 transition-colors duration-300">
+                    <Icon
+                      className="h-7 w-7 text-primary"
+                      aria-hidden="true"
+                    />
+                  </div>
                 ) : undefined
               }
             />

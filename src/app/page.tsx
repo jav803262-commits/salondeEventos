@@ -28,12 +28,15 @@ export default function Home() {
         <Services />
         {businessData.settings.showGallery && <Gallery />}
 
-         <CTA config={businessData.ctaSections.reservation} />
+         <CTA config={businessData.ctaSections.gallery} />
        
         {businessData.settings.showTestimonials && <Testimonials />}
         {businessData.settings.showFAQ && <FAQ />}
+
+        <CTA config={businessData.ctaSections.testimonials} />
         
         {businessData.settings.showMap && <Map />}
+        
         
         <CTA config={businessData.ctaSections.quote} />
        

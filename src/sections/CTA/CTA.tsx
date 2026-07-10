@@ -39,8 +39,8 @@ export default function CTA({ config }: CTAProps) {
           <div className="mt-8 flex flex-col gap-2 text-sm text-white/70">
 
             {settings.showCTAPhone && (
-              <a
-                href={`tel:${business.phone}`}
+              
+               <a  href={`tel:${business.phone}`}
                 className="transition hover:text-white"
               >
                 Tel. {business.displayPhone}
@@ -59,26 +59,26 @@ export default function CTA({ config }: CTAProps) {
 
           </div>
 
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+          {/* CTA principal (WhatsApp) + acción secundaria como link de texto */}
+          <div className="mt-8 flex flex-col items-center gap-4">
 
             {config.whatsappButton && (
               <WhatsAppLink
                 ariaLabel={config.whatsappButton.label}
-                className="flex flex-1 items-center justify-center rounded-xl bg-amber-500 px-6 py-4 font-semibold text-black"
+                className="inline-flex w-full max-w-sm items-center justify-center rounded-xl bg-amber-500 px-6 py-4 font-semibold text-black transition hover:bg-amber-400 sm:w-auto sm:px-10"
               >
                 {config.whatsappButton.label}
               </WhatsAppLink>
             )}
 
             {config.phoneButton && (
-              <Button
+              <a
                 href={`tel:${business.phone}`}
-                icon="Phone"
-                iconPosition="left"
-                className="flex-1 min-h-14 justify-center"
+                aria-label={config.phoneButton.label}
+                className="text-sm font-medium text-amber-500 underline underline-offset-4 transition hover:text-amber-400"
               >
-                {config.phoneButton.label}
-              </Button>
+                o {config.phoneButton.label.toLowerCase()}
+              </a>
             )}
 
           </div>

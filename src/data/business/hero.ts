@@ -16,7 +16,7 @@ export const heroSection: BusinessData["heroSection"] = {
     "Salón de fiestas y eventos con jardines, salones climatizados y todo lo necesario para bodas, XV años, graduaciones y celebraciones corporativas.",
 
   primaryButton: {
-    text: "Cotizar por WhatsApp",
+    text: "WhatsApp",
     // ✅ Verificado: coincide con el id "#contacto" de `navigation`.
     href: "#contacto",
   },

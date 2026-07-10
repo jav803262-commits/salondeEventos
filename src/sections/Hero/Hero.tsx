@@ -78,23 +78,41 @@ export default function Hero() {
               </ul>
             )}
 
-            <div className="mt-5 flex gap-3 md:mt-8">
+            {/* CTA: apilado y jerárquico en mobile, en fila en desktop */}
+            <div className="mt-5 flex flex-col items-stretch gap-3 md:mt-8 md:flex-row md:items-center">
               <WhatsAppLink
                 ariaLabel={hero.primaryButton.text}
-                className="flex-1 rounded-xl bg-amber-500 px-5 py-3 text-center text-sm font-semibold text-black transition hover:opacity-90 md:flex-initial md:px-6"
+                className="w-full rounded-xl bg-amber-500 px-5 py-3 text-center text-sm font-semibold text-black transition hover:opacity-90 md:w-auto md:flex-initial md:px-6"
               >
                 {hero.primaryButton.text}
               </WhatsAppLink>
+                  {hero.showSecondaryButton && hero.secondaryButton && (
+  <>
+    {/* Mobile: link de texto secundario */}
+    <div className="md:hidden">
+      <a
+        href={hero.secondaryButton.href}
+        aria-label={hero.secondaryButton.text}
+        className="block text-center text-sm font-medium text-amber-400 underline underline-offset-4"
+      >
+        o {hero.secondaryButton.text.toLowerCase()}
+      </a>
+    </div>
 
-              {hero.showSecondaryButton && hero.secondaryButton && (
-                <Button
-                  href={hero.secondaryButton.href}
-                  variant="secondary"
-                  className="flex-1 border-white/40 text-black md:flex-initial md:border-gray-300 md:text-gray-900"
-                >
-                  {hero.secondaryButton.text}
-                </Button>
-              )}
+    {/* Desktop: botón secundario en fila */}
+    <div className="hidden md:block">
+      <Button
+        href={hero.secondaryButton.href}
+        variant="secondary"
+        className="border-gray-300 text-gray-900"
+      >
+        {hero.secondaryButton.text}
+      </Button>
+    </div>
+  </>
+)}
+
+
             </div>
 
             {hero.showStats && hero.stats.length > 0 && (
